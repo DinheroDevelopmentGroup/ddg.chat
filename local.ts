@@ -64,6 +64,12 @@ export const chat = {
       isActionBar: false,
     });
   },
+  toClientActionBar(message: unknown) {
+    proxy.writeDownstream('system_chat', {
+      content: JSON.stringify(message),
+      isActionBar: true,
+    });
+  },
   toServer(message: string) {
     channel.write(message);
   },
